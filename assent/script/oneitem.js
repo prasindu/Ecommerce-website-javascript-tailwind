@@ -1,6 +1,9 @@
 import { item } from "../data/item.js";
 import { products } from "../data/products.js";
-
+import { cartquantitycal } from "../data/cart.js";
+import { cartquantity } from "../data/cart.js";
+import { localsrotagesavecart } from "../data/cart.js"; 
+import { cart } from "../data/cart.js";
 
 
 
@@ -30,7 +33,7 @@ function xx(){
                             $${(product.priceCents)/100}
                         </div>
                         <div class="mt-5 text-center">
-                            <button class="p-4 text-white bg-purple-500 hover:bg-purple-900 rounded-[10px]"> ADD TO CART</button>
+                            <button class="js-click p-4 text-white bg-purple-500 hover:bg-purple-900 rounded-[10px]"> ADD TO CART</button>
             
                         </div>
                     </div>
@@ -46,3 +49,37 @@ function xx(){
 
 };
 xx();
+
+ const btn=document.querySelector(".js-click")
+        btn.addEventListener( "click", () =>{
+            
+            const itemid=item[0];
+            console.log(itemid);
+            let value="false";
+            cart.forEach((item) =>{
+                if(itemid===item.productid){
+                    item.quantity +=1;
+                    value="true";
+                    localsrotagesavecart();
+                    
+                }
+            });
+            
+            if(value ==="false"){
+                cart.push({
+                    productid :itemid,
+                    quantity : 1
+                });
+                localsrotagesavecart();
+            }
+            cartquantitycal();
+            document.querySelector(".js-cart-num").innerHTML= cartquantity; 
+            
+        });
+
+
+
+cartquantitycal();
+document.querySelector(".js-cart-num").innerHTML= cartquantity; 
+    
+

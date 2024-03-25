@@ -1,5 +1,12 @@
 import {products} from "../data/products.js";
 import { item } from "../data/item.js";
+import { cart } from "../data/cart.js";
+import { cartquantitycal } from "../data/cart.js";
+import { cartquantity } from "../data/cart.js";
+
+
+
+
 let templete=``;
 products.forEach((item) => {
     templete +=`
@@ -24,17 +31,21 @@ products.forEach((item) => {
 });
 document.querySelector(".js-item-grid").innerHTML=templete;
 
-export function localsrotagesave() {
+export function localsrotagesaveitem() {
     localStorage.setItem("item",JSON.stringify(item));
 };
+
 
 document.querySelectorAll(".js-link-page")
     .forEach((itemselect) =>{
         itemselect.addEventListener("click",() =>{
             const id= itemselect.dataset.productId;
-            console.log(id);
+            
             item[0]=id;
-            localsrotagesave();
+            localsrotagesaveitem();
         });
     });
 
+
+cartquantitycal();
+document.querySelector(".js-cart-num").innerHTML= cartquantity; 
