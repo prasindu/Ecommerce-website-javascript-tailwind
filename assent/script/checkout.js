@@ -26,7 +26,7 @@ document.querySelector(".js-checkout-template")
                             </div>
                             <div class="w-[300px] ml-4 ">
                                 <p class="mb-2 font-bold">${product.name}</p>
-                                <p class="mb-2 font-bold text-red-700">${(product.priceCents)/100}</p>
+                                <p class="mb-2 font-bold text-red-700">$${(product.priceCents)/100}</p>
                                 <p>Quantity: ${item.quantity}</p>
                                 
                             </div>

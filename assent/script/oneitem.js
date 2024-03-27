@@ -33,7 +33,7 @@ function xx(){
                             $${(product.priceCents)/100}
                         </div>
                         <div class="mt-5 text-center">
-                            <button class="js-click p-4 text-white bg-purple-500 hover:bg-purple-900 rounded-[10px]"> ADD TO CART</button>
+                            <button class="js-click p-4 text-white bg-purple-500 hover:bg-purple-600 rounded-[10px] active:bg-purple-900"> ADD TO CART</button>
             
                         </div>
                     </div>
