@@ -28,3 +28,19 @@ export function cartquantitycal(){
 export function localsrotagesavecart(){
     localStorage.setItem("cart",JSON.stringify(cart));
 };
+
+let machcart=[];
+export function deletecartitem(x){
+    cart.forEach((item) =>{
+        if(x!=item.productid){
+            machcart.push(item);
+           
+        }
+    
+    });
+   cart = machcart;
+   machcart=[];
+   localsrotagesavecart();
+   const container =document.querySelector(`.js-cart-item-container-${x}`);
+    container.remove();
+};
